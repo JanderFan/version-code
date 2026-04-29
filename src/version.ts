@@ -40,7 +40,7 @@ export class Version {
       return new Version(
         parseInt(major!, 10),
         parseInt(minor!, 10),
-        parseInt(patch!, 10)
+        parseInt(patch!, 10),
       );
     }
 
@@ -52,7 +52,7 @@ export class Version {
     }
 
     throw new VersionParseError(
-      `Invalid version string: "${versionString}". Expected format: "X.Y" or "X.Y.Z"`
+      `Invalid version string: "${versionString}". Expected format: "X.Y" or "X.Y.Z"`,
     );
   }
 
@@ -85,7 +85,7 @@ export class Version {
   compare(other: Version): CompareResult {
     if (this.format !== other.format) {
       throw new VersionFormatMismatchError(
-        `Cannot compare different version formats: ${this.format} vs ${other.format}`
+        `Cannot compare different version formats: ${this.format} vs ${other.format}`,
       );
     }
 
@@ -127,20 +127,20 @@ export class Version {
         return new Version(
           this.major + 1,
           0,
-          this.format === 'three-part' ? 0 : undefined
+          this.format === 'three-part' ? 0 : undefined,
         );
 
       case 'minor':
         return new Version(
           this.major,
           this.minor + 1,
-          this.format === 'three-part' ? 0 : undefined
+          this.format === 'three-part' ? 0 : undefined,
         );
 
       case 'patch':
         if (this.format !== 'three-part') {
           throw new VersionOperationError(
-            'Cannot upgrade patch on two-part version. Use "minor" instead.'
+            'Cannot upgrade patch on two-part version. Use "minor" instead.',
           );
         }
         return new Version(this.major, this.minor, (this.patch as number) + 1);

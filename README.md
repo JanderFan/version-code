@@ -32,12 +32,12 @@ pnpm add version-code
 import { Version } from 'version-code';
 
 // 从字符串解析
-const v1 = Version.parse('1.2');      // 两位版本号
-const v2 = Version.parse('1.2.3');    // 三位版本号
+const v1 = Version.parse('1.2'); // 两位版本号
+const v2 = Version.parse('1.2.3'); // 三位版本号
 
 // 从数字创建
-const v3 = Version.create(1, 2);      // 两位版本号
-const v4 = Version.create(1, 2, 3);   // 三位版本号
+const v3 = Version.create(1, 2); // 两位版本号
+const v4 = Version.create(1, 2, 3); // 三位版本号
 ```
 
 ### 比较版本号
@@ -51,15 +51,15 @@ const v3 = Version.parse('1.2.3');
 const v4 = Version.parse('1.2.4');
 
 // 比较返回 -1, 0, 1
-v1.compare(v2);  // -1 (1.2 < 1.3)
-v2.compare(v1);  // 1  (1.3 > 1.2)
-v1.compare(v1);  // 0  (相等)
+v1.compare(v2); // -1 (1.2 < 1.3)
+v2.compare(v1); // 1  (1.3 > 1.2)
+v1.compare(v1); // 0  (相等)
 
-v3.compare(v4);  // -1 (1.2.3 < 1.2.4)
+v3.compare(v4); // -1 (1.2.3 < 1.2.4)
 
 // 检查相等性
-v1.equals(v2);   // false
-v1.equals(v1);   // true
+v1.equals(v2); // false
+v1.equals(v1); // true
 ```
 
 ### 升级版本号
@@ -71,15 +71,15 @@ const twoPart = Version.parse('1.2');
 const threePart = Version.parse('1.2.3');
 
 // Major 升级
-twoPart.upgrade('major');     // 2.0
-threePart.upgrade('major');   // 2.0.0
+twoPart.upgrade('major'); // 2.0
+threePart.upgrade('major'); // 2.0.0
 
 // Minor 升级
-twoPart.upgrade('minor');     // 1.3
-threePart.upgrade('minor');   // 1.3.0
+twoPart.upgrade('minor'); // 1.3
+threePart.upgrade('minor'); // 1.3.0
 
 // Patch 升级（仅适用于三位版本号）
-threePart.upgrade('patch');   // 1.2.4
+threePart.upgrade('patch'); // 1.2.4
 ```
 
 ### 类型守卫
@@ -109,10 +109,10 @@ const twoPart = Version.parse('1.2');
 const threePart = Version.parse('1.2.3');
 
 // 两位版本号转三位（添加 .0）
-twoPart.toThreePart();  // 1.2.0
+twoPart.toThreePart(); // 1.2.0
 
 // 三位版本号转两位（会抛出错误）
-threePart.toTwoPart();  // 抛出 VersionOperationError
+threePart.toTwoPart(); // 抛出 VersionOperationError
 ```
 
 ## API 文档
@@ -135,6 +135,7 @@ const v2 = Version.parse('1.2.3');
 ```
 
 ##### `Version.create(major: number, minor: number): Version`
+
 ##### `Version.create(major: number, minor: number, patch: number): Version`
 
 从数字创建版本号。
@@ -147,8 +148,8 @@ const v2 = Version.parse('1.2.3');
 - **抛出**: `VersionParseError` - 如果参数无效
 
 ```typescript
-const v1 = Version.create(1, 2);      // 两位版本号
-const v2 = Version.create(1, 2, 3);   // 三位版本号
+const v1 = Version.create(1, 2); // 两位版本号
+const v2 = Version.create(1, 2, 3); // 三位版本号
 ```
 
 #### 实例属性
@@ -171,7 +172,7 @@ const v2 = Version.create(1, 2, 3);   // 三位版本号
 ```typescript
 const v1 = Version.parse('1.2');
 const v2 = Version.parse('1.3');
-v1.compare(v2);  // -1
+v1.compare(v2); // -1
 ```
 
 ##### `equals(other: Version): boolean`
@@ -184,7 +185,7 @@ v1.compare(v2);  // -1
 ```typescript
 const v1 = Version.parse('1.2');
 const v2 = Version.parse('1.2');
-v1.equals(v2);  // true
+v1.equals(v2); // true
 ```
 
 ##### `upgrade(type: 'major' | 'minor' | 'patch'): Version`
@@ -200,9 +201,9 @@ v1.equals(v2);  // true
 
 ```typescript
 const v = Version.parse('1.2.3');
-v.upgrade('major');  // 2.0.0
-v.upgrade('minor');  // 1.3.0
-v.upgrade('patch');  // 1.2.4
+v.upgrade('major'); // 2.0.0
+v.upgrade('minor'); // 1.3.0
+v.upgrade('patch'); // 1.2.4
 ```
 
 ##### `toString(): string`
@@ -211,7 +212,7 @@ v.upgrade('patch');  // 1.2.4
 
 ```typescript
 const v = Version.parse('1.2.3');
-v.toString();  // "1.2.3"
+v.toString(); // "1.2.3"
 ```
 
 ##### `isTwoPart(): boolean`
@@ -220,7 +221,7 @@ v.toString();  // "1.2.3"
 
 ```typescript
 const v = Version.parse('1.2');
-v.isTwoPart();  // true
+v.isTwoPart(); // true
 ```
 
 ##### `isThreePart(): boolean`
@@ -229,7 +230,7 @@ v.isTwoPart();  // true
 
 ```typescript
 const v = Version.parse('1.2.3');
-v.isThreePart();  // true
+v.isThreePart(); // true
 ```
 
 ##### `toTwoPart(): Version`
@@ -241,7 +242,7 @@ v.isThreePart();  // true
 
 ```typescript
 const v = Version.parse('1.2');
-v.toTwoPart();  // 返回自身
+v.toTwoPart(); // 返回自身
 ```
 
 ##### `toThreePart(): Version`
@@ -250,7 +251,7 @@ v.toTwoPart();  // 返回自身
 
 ```typescript
 const v = Version.parse('1.2');
-v.toThreePart();  // 1.2.0
+v.toThreePart(); // 1.2.0
 ```
 
 ##### `toJSON(): string`
@@ -259,8 +260,8 @@ JSON 序列化。
 
 ```typescript
 const v = Version.parse('1.2.3');
-v.toJSON();  // "1.2.3"
-JSON.stringify({ version: v });  // {"version":"1.2.3"}
+v.toJSON(); // "1.2.3"
+JSON.stringify({ version: v }); // {"version":"1.2.3"}
 ```
 
 ### 错误类
@@ -356,8 +357,8 @@ pnpm dev
 const v1 = Version.parse('1.2.3');
 const v2 = v1.upgrade('minor');
 
-console.log(v1.toString());  // "1.2.3" (未改变)
-console.log(v2.toString());  // "1.3.0"
+console.log(v1.toString()); // "1.2.3" (未改变)
+console.log(v2.toString()); // "1.3.0"
 ```
 
 ### 格式独立
@@ -368,7 +369,7 @@ console.log(v2.toString());  // "1.3.0"
 const v1 = Version.parse('1.2');
 const v2 = Version.parse('1.2.0');
 
-v1.equals(v2);  // false (不同格式)
+v1.equals(v2); // false (不同格式)
 v1.compare(v2); // 抛出 VersionFormatMismatchError
 ```
 

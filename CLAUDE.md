@@ -26,6 +26,7 @@ This project uses **pnpm** (version 10.33.0). Always use `pnpm` commands instead
 ## Build System
 
 The project uses **tsup** for building, which is a zero-config TypeScript bundler powered by esbuild. The build produces:
+
 - CommonJS output: `dist/index.cjs`
 - Source maps enabled
 

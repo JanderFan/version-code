@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "test": "vitest"
+    "test": "vitest",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "Jander Fan",
@@ -13,9 +14,14 @@
   "packageManager": "pnpm@10.33.0",
   "type": "module",
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0",
     "prettier": "^3.8.3",
     "tsup": "^8.5.1",
     "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.1",
     "vitest": "^4.1.5"
   },
   "module": "dist/index.js",
