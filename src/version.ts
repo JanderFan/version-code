@@ -1,9 +1,9 @@
-import type { VersionFormat, UpgradeType, CompareResult } from './types';
 import {
-  VersionParseError,
   VersionFormatMismatchError,
   VersionOperationError,
+  VersionParseError,
 } from './errors';
+import type { CompareResult, UpgradeType, VersionFormat } from './types';
 
 // Validation regex patterns
 const TWO_PART_REGEX = /^(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
@@ -146,6 +146,7 @@ export class Version {
         return new Version(this.major, this.minor, (this.patch as number) + 1);
 
       default:
+        // eslint-disable-next-line no-case-declarations
         const _exhaustive: never = type;
         throw new VersionOperationError(`Unknown upgrade type: ${_exhaustive}`);
     }

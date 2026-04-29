@@ -6,7 +6,8 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "test": "vitest",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "Jander Fan",
@@ -18,6 +19,7 @@
     "@eslint/js": "^10.0.1",
     "eslint": "^10.2.1",
     "globals": "^17.5.0",
+    "jiti": "^2.6.1",
     "prettier": "^3.8.3",
     "tsup": "^8.5.1",
     "typescript": "^6.0.3",
