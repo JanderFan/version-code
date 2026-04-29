@@ -7,7 +7,8 @@
     "dev": "tsup --watch",
     "test": "vitest",
     "format": "prettier --write .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "ci:publish": "pnpm publish --no-git-checks --recursive --access public"
   },
   "keywords": [
     "version",
