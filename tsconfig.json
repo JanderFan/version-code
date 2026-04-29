@@ -5,6 +5,9 @@
     // "rootDir": "./src",
     // "outDir": "./dist",
 
+    // Ignore deprecations
+    "ignoreDeprecations": "6.0",
+
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
     "module": "esnext",
