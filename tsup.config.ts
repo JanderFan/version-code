@@ -8,5 +8,6 @@ export default defineConfig((options) => {
     clean: true,
     dts: true,
     minify: !options.watch,
+    format: ["cjs", "esm"],
   };
 });
